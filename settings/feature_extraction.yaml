@@ -1,0 +1,24 @@
+# =================================
+# Feature extraction process
+# settings.
+#
+# author: Konstantinos Drossos, Nikita Kuzmin
+# affiliation: Tampere University, Lomonosov Moscow State University
+# =================================
+keep_raw_audio_data: No
+simple_concat_captions: Yes
+# -----------------------------------
+process:
+  sr: 44100
+  sr_resample: 16000
+  nb_fft: 1024
+  hop_size: 512
+  nb_mels: 128
+  window_function: 'hann'
+  center: Yes
+  f_min: .0
+  f_max:
+  htk: No
+  power: 1 # for now this parameter doesn't matter on result (in all casses power = 1) IMPORTANT!! I have changed torchaudio melspec implementation!
+  norm: 'slaney'
+# EOF

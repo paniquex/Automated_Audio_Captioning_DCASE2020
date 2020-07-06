@@ -1,0 +1,47 @@
+# =================================
+# Settings for file structure.
+#
+# author: Konstantinos Drossos, Nikita Kuzmin
+# affiliation: Tampere University, Lomonosov Moscow State University
+# =================================
+root_dirs:
+  outputs: 'outputs'
+  data: 'data'
+# -----------------------------------
+dataset:
+  development: &dev 'development'
+  evaluation: &eva 'evaluation'
+  test: &test 'test'
+  features_dirs:
+    output: 'data_splits'
+    development: *dev
+    evaluation: *eva
+    test: *test
+  audio_dirs:
+    downloaded: 'clotho_audio_files'
+    output: 'data_splits_audio'
+    development: *dev
+    evaluation: *eva
+    test: *test
+  annotations_dir: 'clotho_csv_files'
+  pickle_files_dir: 'pickles'
+  files:
+    np_file_name_template: 'clotho_file_{audio_file_name}_{caption_index}.npy'
+    words_list_file_name: 'words_list.p'
+    words_counter_file_name: 'words_frequencies.p'
+    characters_list_file_name: 'characters_list.p'
+    characters_frequencies_file_name: 'characters_frequencies.p'
+# -----------------------------------
+model:
+  model_dir: 'models'
+  checkpoint_model_name: 'with_miasdasdxup_without_another_without_removing_duplicates_without_scst_with_attention_with_simple_concat_captions_with_fc_nbmels_128_nboutput40_online_lr4e-4.pt'
+  pre_trained_model_name: 'with_mixup_with_another_without_removing_duplicates_without_scst_with_simple_concat_captions_with_fc_nbmels_128_nboutput40_online_lr1e-4_v3.pt'
+# -----------------------------------
+logging:
+  logger_dir: 'logging'
+  caption_logger_file: 'captions_baseline.txt'
+# -----------------------------------
+submissions:
+  submissions_dir: 'submissions'
+  submission_file: 'caption_predictions.csv'
+# EOF

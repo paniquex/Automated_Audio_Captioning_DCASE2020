@@ -1,0 +1,41 @@
+# =================================
+# Settings for the baseline method.
+#
+# author: Konstantinos Drossos, Nikita Kuzmin
+# affiliation: Tampere University, Lomonosov Moscow State University
+# =================================
+model: !include model_baseline.yaml
+# -----------------------------------
+data:
+  input_field_name: 'features'
+  output_field_name: 'words_ind'
+  transforms: ['MixUp'] #['another']#'MixUp' # None #'MixUp'
+  MixUp_p: 0.5
+  load_into_memory: No
+  batch_size: 45
+  shuffle: Yes
+  num_workers: 10
+  drop_last: Yes
+# ---------------------------------
+training:
+  experiment_name: 'with_mixup_without_another_without_removing_duplicates_without_scst_with_attention_with_simple_concat_captions_with_fc_nbmels_128_nboutput40_online_lr4e-4.pt'
+  nb_epochs: 500
+  validation_strategy: 'None' # Could be None, 'holdout', 'CV'
+  n_folds: 5 # Works with validation_strategy = 'CV'
+  patience: 300
+  metrics_calculation_freq: !!int 1 # How frequent calculate and send metrics to Tensorboard
+  loss_thr: !!float 1e-4
+  use_apex: No
+  apex_opt_level: 'O1'
+  use_scst: No # RL loss calculation
+  remove_duplicates_from_predicted_caption: No
+  use_attention: No
+  optimizer:
+    lr: !!float 4e-4
+  grad_norm:
+    value: !!float 1.  # Set value to -1 for not using gradient clipping
+    norm: 2
+  force_cpu: No
+  text_output_every_nb_epochs: !!int 600
+  nb_examples_to_sample: 100
+# EOF
