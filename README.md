@@ -21,7 +21,7 @@ one-hot encoded words) for PyTorch library (i.e. PyTorch DataLoader for
 Clotho data) can also be found
 [here](https://github.com/audio-captioning/clotho-dataloader).
 
-This repository is maintained by [K. Drossos](https://github.com/dr-costas). 
+This repository is maintained by [K. Drossos](https://github.com/dr-costas) and [me](https://github.com/paniquexx). 
 
 ----
 
